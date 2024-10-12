@@ -5,5 +5,5 @@ import ru.netology.coinapp.dto.Asset
 
 interface AssetRepository {
     val data: Flow<List<Asset>>
-    suspend fun getAll()
+    suspend fun load()
 }

@@ -24,18 +24,12 @@ class AssetRepositoryImpl @Inject constructor(
         .map(List<AssetEntity>::toDto)
         .flowOn(Dispatchers.Default)
 
-    override suspend fun getAll() {
-        try {
-            val response = apiService.getAssets("")
-            if (!response.isSuccessful) {
-                throw ApiError(response.code(), response.message())
-            }
-            val body = response.body() ?: throw ApiError(response.code(), response.message())
-            assetDao.insert(body.toEntity())
-        } catch (e: IOException) {
-            throw NetworkError
-        } catch (e: Exception) {
-            throw UnknownError
+    override suspend fun load() {
+        val response = apiService.getAssets("")
+        if (!response.isSuccessful) {
+            throw ApiError(response.code(), response.message())
         }
+        val body = response.body() ?: throw ApiError(response.code(), response.message())
+        assetDao.insert(body.toEntity())
     }
 }
