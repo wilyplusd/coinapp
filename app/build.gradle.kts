@@ -29,10 +29,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_BASE_URL", "\"https://api.coincap.io/v2\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://api.coincap.io/v2/\"")
         }
         debug {
-            buildConfigField("String", "API_BASE_URL", "\"https://api.coincap.io/v2\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://api.coincap.io/v2/\"")
         }
     }
     compileOptions {
@@ -59,17 +59,22 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.retrofit.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.androidx.room)
+    kapt(libs.androidx.room.compiler)
     kapt(libs.dagger.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
