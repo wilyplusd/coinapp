@@ -30,6 +30,6 @@ class AssetRepositoryImpl @Inject constructor(
             throw ApiError(response.code(), response.message())
         }
         val body = response.body() ?: throw ApiError(response.code(), response.message())
-        assetDao.insert(body.toEntity())
+        assetDao.insert(body.data.toEntity())
     }
 }
