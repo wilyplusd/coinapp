@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.retrofit.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.androidx.room)
     kapt(libs.androidx.room.compiler)

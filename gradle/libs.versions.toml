@@ -13,6 +13,7 @@ composeLivedata = "1.7.3"
 room = "2.6.1"
 retrofit = "2.11.0"
 dagger = "2.51.1"
+navigationCompose = "2.7.6"
 hiltNavigationCompose = "1.2.0"
 
 [libraries]
@@ -39,6 +40,7 @@ retrofit-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", versi
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 [plugins]

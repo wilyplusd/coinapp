@@ -17,7 +17,9 @@ import javax.inject.Inject
 class AssetViewModel @Inject constructor(
     private val repository: AssetRepository
 ) : ViewModel() {
-    val assets: LiveData<List<Asset>> = repository.data.asLiveData(Dispatchers.Default)
+    val assetList: LiveData<List<Asset>> = repository.data.asLiveData(Dispatchers.Default)
+
+    var currentAsset: Asset = Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0)
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean>
