@@ -1,5 +1,6 @@
 package ru.netology.coinapp.ui
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -26,9 +27,9 @@ import ru.netology.coinapp.viewmodel.AssetViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AssetListScreen(
-    viewModel: AssetViewModel,
-    onAssetDetails: (asset: Asset) -> Unit,
+    onAssetDetails: () -> Unit,
 ) {
+    val viewModel = hiltViewModel<AssetViewModel>()
     val assets by viewModel.assetList.observeAsState(listOf())
 
     LaunchedEffect(Unit) {
@@ -41,7 +42,10 @@ fun AssetListScreen(
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = 6.dp
                 ),
-                onClick = { onAssetDetails(item) }
+                onClick = {
+                    viewModel.currentAsset = item
+                    onAssetDetails()
+                }
             ) {
                 Text(
                     text = item.name,

@@ -77,6 +77,8 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.datastore.preferences)
     kapt(libs.androidx.room)
     kapt(libs.androidx.room.compiler)
     kapt(libs.dagger.hilt.compiler)

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CoinApp</string>
+    <string name="icon_back">Назад</string>
+    <string name="icon_settings">Настройки</string>
+    <string name="icon_refresh">Обновить</string>
+    <string name="theme">Тема</string>
+    <string name="theme_system">Системная</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
     <string name="asset_supply">Предложение</string>
 </resources>

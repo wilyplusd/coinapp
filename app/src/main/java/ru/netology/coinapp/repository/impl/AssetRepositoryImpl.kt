@@ -11,7 +11,6 @@ import ru.netology.coinapp.entity.AssetEntity
 import ru.netology.coinapp.entity.toDto
 import ru.netology.coinapp.entity.toEntity
 import ru.netology.coinapp.error.*
-import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 

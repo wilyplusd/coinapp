@@ -12,13 +12,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import ru.netology.coinapp.dto.Asset
 import ru.netology.coinapp.viewmodel.AssetViewModel
 
 @Composable
-fun AssetDetailsScreen(
-    viewModel: AssetViewModel
-) {
+fun AssetDetailsScreen() {
+    val viewModel = hiltViewModel<AssetViewModel>()
     val asset = viewModel.currentAsset
 
     Text(asset.name + " - " + asset.id)
