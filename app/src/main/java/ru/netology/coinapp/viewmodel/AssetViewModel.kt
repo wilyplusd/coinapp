@@ -21,11 +21,11 @@ class AssetViewModel @Inject constructor(
 
     var currentAsset: Asset = Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0)
 
-    private val _loading = MutableLiveData<Boolean>()
+    private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean>
         get() = _loading
 
-    private val _error = MutableLiveData<String>()
+    private val _error = MutableLiveData("")
     val error: LiveData<String>
         get() = _error
 

@@ -18,17 +18,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ru.netology.coinapp.R
 import ru.netology.coinapp.viewmodel.AssetViewModel
+import ru.netology.coinapp.viewmodel.SettingsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CoinApp() {
     val assetViewModel = hiltViewModel<AssetViewModel>()
+    val settingsViewModel = hiltViewModel<SettingsViewModel>()
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
@@ -81,15 +84,20 @@ fun CoinApp() {
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(Screen.Settings.name) {
-                SettingsScreen()
+                SettingsScreen(
+                    viewModel = settingsViewModel,
+                )
             }
             composable(Screen.AssetList.name) {
                 AssetListScreen(
+                    viewModel = assetViewModel,
                     onAssetDetails = { navController.navigate(Screen.AssetDetails.name) }
                 )
             }
             composable(Screen.AssetDetails.name) {
-                AssetDetailsScreen()
+                AssetDetailsScreen(
+                    viewModel = assetViewModel,
+                )
             }
         }
     }

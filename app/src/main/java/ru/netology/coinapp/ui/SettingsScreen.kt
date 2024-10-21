@@ -25,9 +25,9 @@ import ru.netology.coinapp.repository.SettingsRepository.Theme
 import ru.netology.coinapp.viewmodel.SettingsViewModel
 
 @Composable
-fun SettingsScreen() {
-    val viewModel = hiltViewModel<SettingsViewModel>()
-
+fun SettingsScreen(
+    viewModel: SettingsViewModel
+) {
     Column(
         modifier = Modifier.padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),

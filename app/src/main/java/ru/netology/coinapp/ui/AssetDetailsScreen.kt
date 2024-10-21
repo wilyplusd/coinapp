@@ -17,8 +17,9 @@ import ru.netology.coinapp.dto.Asset
 import ru.netology.coinapp.viewmodel.AssetViewModel
 
 @Composable
-fun AssetDetailsScreen() {
-    val viewModel = hiltViewModel<AssetViewModel>()
+fun AssetDetailsScreen(
+    viewModel: AssetViewModel,
+) {
     val asset = viewModel.currentAsset
 
     Text(asset.name + " - " + asset.id)
