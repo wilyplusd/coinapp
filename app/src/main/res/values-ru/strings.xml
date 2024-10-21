@@ -8,6 +8,8 @@
     <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
-    <string name="asset_supply">Предложение</string>
+    <string name="asset_symbol">Символ</string>
     <string name="asset_price_usd">Цена в USD</string>
+    <string name="asset_volume_usd_24h">Объём в USD (за сутки)</string>
+    <string name="asset_supply">Предложение</string>
 </resources>

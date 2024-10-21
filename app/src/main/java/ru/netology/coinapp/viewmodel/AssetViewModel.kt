@@ -19,7 +19,7 @@ class AssetViewModel @Inject constructor(
 ) : ViewModel() {
     val assetList: LiveData<List<Asset>> = repository.data.asLiveData(Dispatchers.Default)
 
-    var currentAsset: Asset = Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0)
+    var currentAsset: Asset = Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0, "")
 
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean>
@@ -34,14 +34,18 @@ class AssetViewModel @Inject constructor(
     }
 
     fun loadAssets()  = viewModelScope.launch {
-        _error.value = null
+        _error.value = ""
         _loading.value = true
         try {
             repository.load()
         } catch (e: Exception) {
-            _error.value = AppError.from(e).code
+            _error.value = "${AppError.from(e).code}: ${e.message}"
         } finally {
             _loading.value = false
         }
+    }
+
+    fun resetError() {
+        _error.value = ""
     }
 }

@@ -29,6 +29,7 @@ fun AssetListScreen(
 ) {
     val assets by viewModel.assetList.observeAsState(listOf())
     val loading by viewModel.loading.observeAsState(false)
+    val error by viewModel.error.observeAsState("")
 
     Column (
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -36,14 +37,21 @@ fun AssetListScreen(
         modifier = Modifier.fillMaxWidth()
     ) {
         if (loading) {
-            CircularProgressIndicator(
+            CircularProgressIndicator (
                 modifier = Modifier.width(24.dp),
                 color = MaterialTheme.colorScheme.secondary,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
             )
         }
 
-        LazyColumn(
+        if (error.isNotEmpty()) {
+            ErrorDialog (
+                message = error,
+                onDismissRequest = { viewModel.resetError() }
+            )
+        }
+
+        LazyColumn (
             modifier = Modifier.padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
@@ -68,7 +76,7 @@ fun AssetListScreen(
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                         Text(
-                            text = "${stringResource(R.string.asset_price_usd)}: ${String.format("%.2f", item.supply)}",
+                            text = "${stringResource(R.string.asset_price_usd)}: ${String.format("%.2f", item.priceUsd)}",
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )

@@ -10,4 +10,5 @@ data class Asset(
     val marketCapUsd: Double,
     val volumeUsd24Hr: Double,
     val changePercent24Hr: Double,
+    val explorer: String?,
 )

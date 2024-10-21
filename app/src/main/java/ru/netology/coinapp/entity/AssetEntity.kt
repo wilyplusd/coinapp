@@ -16,12 +16,13 @@ data class AssetEntity(
     val marketCapUsd: Double,
     val volumeUsd24Hr: Double,
     val changePercent24Hr: Double,
+    val explorer: String?,
 ) {
-    fun toDto() = Asset(id, rank, symbol, name, supply, priceUsd, marketCapUsd, volumeUsd24Hr, changePercent24Hr)
+    fun toDto() = Asset(id, rank, symbol, name, supply, priceUsd, marketCapUsd, volumeUsd24Hr, changePercent24Hr, explorer)
 
     companion object {
         fun fromDto(dto: Asset) =
-            AssetEntity(dto.id, dto.rank, dto.symbol, dto.name, dto.supply, dto.priceUsd, dto.marketCapUsd, dto.volumeUsd24Hr, dto.changePercent24Hr)
+            AssetEntity(dto.id, dto.rank, dto.symbol, dto.name, dto.supply, dto.priceUsd, dto.marketCapUsd, dto.volumeUsd24Hr, dto.changePercent24Hr, dto.explorer)
     }
 }
 

@@ -7,6 +7,8 @@
     <string name="theme_system">System</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
-    <string name="asset_supply">Supply</string>
+    <string name="asset_symbol">Symbol</string>
     <string name="asset_price_usd">Price in USD</string>
+    <string name="asset_volume_usd_24h">Volume in USD (24h)</string>
+    <string name="asset_supply">Supply</string>
 </resources>
