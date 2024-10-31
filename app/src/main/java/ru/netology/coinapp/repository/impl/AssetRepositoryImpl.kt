@@ -24,7 +24,7 @@ class AssetRepositoryImpl @Inject constructor(
         .flowOn(Dispatchers.Default)
 
     override suspend fun load() {
-        val response = apiService.getAssets("")
+        val response = apiService.getAssets()
         if (!response.isSuccessful) {
             throw ApiError(response.code(), response.message())
         }

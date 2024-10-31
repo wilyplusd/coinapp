@@ -16,5 +16,8 @@ fun retrofit(): Retrofit = Retrofit.Builder()
 
 interface ApiService {
     @GET("assets")
-    suspend fun getAssets(@Query("ids", encoded = true) assetIds: String?): Response<ApiResponse<List<Asset>>>
+    suspend fun getAssets(
+        @Query("offset") offset: Int = 0,
+        @Query("limit") limit: Int = 2000
+    ): Response<ApiResponse<List<Asset>>>
 }
