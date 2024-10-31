@@ -30,7 +30,6 @@ import ru.netology.coinapp.viewmodel.SettingsViewModel
 @Composable
 fun CoinApp() {
     val assetViewModel = hiltViewModel<AssetViewModel>()
-    val settingsViewModel = hiltViewModel<SettingsViewModel>()
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
@@ -83,9 +82,7 @@ fun CoinApp() {
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(Screen.Settings.name) {
-                SettingsScreen(
-                    viewModel = settingsViewModel,
-                )
+                SettingsScreen()
             }
             composable(Screen.AssetList.name) {
                 AssetListScreen(
