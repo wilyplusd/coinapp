@@ -2,6 +2,7 @@ package ru.netology.coinapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -15,11 +16,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AssetViewModel @Inject constructor(
-    private val repository: AssetRepository
+    private val repository: AssetRepository,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     val assetList: LiveData<List<Asset>> = repository.data.asLiveData(Dispatchers.Default)
 
-    var currentAsset: Asset = Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0, "")
+    var currentAsset: Asset = savedStateHandle["currentAsset"] ?: Asset("", 0, "", "", 0.0, 0.0, 0.0, 0.0,0.0, "")
+        set(value) {
+            field = value
+            savedStateHandle["currentAsset"] = field
+        }
 
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean>
