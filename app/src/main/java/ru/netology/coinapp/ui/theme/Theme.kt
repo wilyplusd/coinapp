@@ -1,4 +1,4 @@
-package ru.netology.coinapp.ui
+package ru.netology.coinapp.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -92,7 +92,7 @@ fun AppTheme(
     darkTheme: Boolean = isDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
   val colorScheme = when {
       dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {

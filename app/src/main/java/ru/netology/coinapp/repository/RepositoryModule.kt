@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package ru.netology.coinapp.repository
 
 import dagger.Binds

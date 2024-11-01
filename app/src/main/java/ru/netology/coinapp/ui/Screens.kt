@@ -1,6 +1,6 @@
 package ru.netology.coinapp.ui
 
-enum class Screen() {
+enum class Screen {
     Settings,
     AssetList,
     AssetDetails,

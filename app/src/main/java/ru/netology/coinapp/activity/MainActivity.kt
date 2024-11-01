@@ -1,3 +1,5 @@
+@file:Suppress("unused", "unused", "unused")
+
 package ru.netology.coinapp.activity
 
 import android.content.Context
@@ -9,9 +11,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.datastore.preferences.core.Preferences
 import dagger.hilt.android.AndroidEntryPoint
-import ru.netology.coinapp.ui.AppTheme
+import ru.netology.coinapp.ui.theme.AppTheme
 import ru.netology.coinapp.ui.CoinApp
 
+@Suppress("unused")
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 @AndroidEntryPoint
@@ -20,7 +23,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AppTheme() {
+            AppTheme {
                 CoinApp()
             }
         }

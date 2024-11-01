@@ -26,9 +26,9 @@ class AssetRepositoryImpl @Inject constructor(
     override suspend fun load() {
         val response = apiService.getAssets()
         if (!response.isSuccessful) {
-            throw ApiError(response.code(), response.message())
+            throw ApiError(response.message())
         }
-        val body = response.body() ?: throw ApiError(response.code(), response.message())
+        val body = response.body() ?: throw ApiError(response.message())
         assetDao.insert(body.data.toEntity())
     }
 }
